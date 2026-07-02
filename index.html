@@ -9,10 +9,10 @@
     <meta name="keywords" content="dua music club, jazz caballito, vinilos buenos aires, cocteleria caballito, restaurante jazz caba, jardin gastronomico">
     <meta name="author" content="DUA Music Club">
     
-    <!-- Google Fonts: Public Sans (Primary UI), Montserrat (Secondary Headings), Cormorant Garamond (Editorial Serif Display) -->
+    <!-- Google Fonts: Public Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Pinyon+Script&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
@@ -58,32 +58,32 @@
         
         <!-- 1. HERO SECTION -->
         <section id="hero" class="hero-section">
+            <!-- Full-width animated background image with slow movement -->
+            <div class="hero-bg-container">
+                <div class="hero-bg-image"></div>
+                <div class="hero-bg-overlay"></div>
+            </div>
+
             <!-- Atmospheric ambient glowing light bubbles in background -->
             <div class="glow-bubble glow-wine glow-hero-red"></div>
             <div class="glow-bubble glow-crimson glow-hero-red"></div>
             
             <div class="section-container hero-container">
                 <!-- Left Column: Header and Primary Action -->
-                <div class="hero-left reveal-up">
+                <div class="hero-left hero-animate-title">
                     <span class="eyebrow eyebrow-light">Caballito · Buenos Aires</span>
                     <h1 class="hero-title">
-                        La <span class="accent-serif-light">música</span> <span class="script-overlay">nos reúne</span>
+                        <span class="title-light">La música</span>
+                        <span class="title-accent">nos reúne</span>
                     </h1>
-                    <div class="hero-actions-left">
+                    <div class="hero-actions-left hero-animate-actions">
                         <a href="#reservas" class="btn btn-primary">Reservá tu mesa</a>
                     </div>
                 </div>
-                
-                <!-- Center Column: Keyhole Image Mask -->
-                <div class="hero-center reveal-up" style="animation-delay: 0.15s;">
-                    <div class="hero-keyhole-frame">
-                        <img src="assets/dua_brindis.png" alt="Dos personas brindando" class="hero-keyhole-img">
-                        <div class="hero-keyhole-overlay"></div>
-                    </div>
-                </div>
+
                 
                 <!-- Right Column: Description and Editorial Link -->
-                <div class="hero-right reveal-up" style="animation-delay: 0.3s;">
+                <div class="hero-right hero-animate-desc">
                     <p class="hero-desc">
                         Jazz, coctelería, vinilos y gastronomía en un mismo espacio. Un lugar para llegar temprano y quedarte hasta tarde.
                     </p>
@@ -113,19 +113,46 @@
                     <div class="manifesto-line"></div>
                 </div>
                 
-                <div class="about-grid">
-                    <div class="about-header reveal-up">
-                        <span class="eyebrow">Un espacio donde todo convive</span>
-                        <h2 class="section-title">Qué es <span class="script-inline">DUA</span></h2>
-                    </div>
-                    
-                    <div class="about-text-content reveal-up">
-                        <p class="about-p highlight-p">
+                <div class="about-header reveal-up text-center" style="margin-bottom: 4rem;">
+                    <span class="eyebrow">Un espacio donde todo convive</span>
+                    <h2 class="section-title">Qué es <span class="script-inline">DUA</span></h2>
+                </div>
+                
+                <div class="about-vinyl-layout reveal-up">
+                    <!-- Left Column -->
+                    <div class="vinyl-col vinyl-left-col">
+
+                        <p class="vinyl-col-text highlight-p">
                             DUA nace de la idea de dos amigos que quisieron crear el lugar que ellos mismos querrían frecuentar. Un espacio donde la música, la gastronomía y la cultura conviven de forma natural, sin pretensiones y con mucha identidad propia.
                         </p>
-                        <p class="about-p">
+                        <span class="crosshair top-left"></span>
+                        <span class="crosshair bottom-left"></span>
+                    </div>
+
+                    <!-- Center Column: Vinyl Showcase -->
+                    <div class="vinyl-center-showcase">
+                        <div class="vinyl-square-box">
+                            <div class="vinyl-frame">
+                                <img src="assets/dua_vinilo.png" alt="Disco de vinilo DUA" class="vinyl-disk-img">
+                            </div>
+                            <!-- Technical outline markers for retro-editorial aesthetic -->
+                            <span class="crop-mark top-left"></span>
+                            <span class="crop-mark top-right"></span>
+                            <span class="crop-mark bottom-left"></span>
+                            <span class="crop-mark bottom-right"></span>
+                            <span class="axis-line vertical"></span>
+                            <span class="axis-line horizontal"></span>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="vinyl-col vinyl-right-col">
+                        <h3 class="vinyl-col-title">Día/Noche</h3>
+                        <p class="vinyl-col-text">
                             El nombre viene de la dualidad: interior y exterior, día y noche, tradición e innovación. Acá la cocina, la coctelería, el jazz, los vinilos y los libros tienen el mismo valor. La experiencia empieza mucho antes del primer acorde, y sigue después de la última canción.
                         </p>
+                        <span class="crosshair top-right"></span>
+                        <span class="crosshair bottom-right"></span>
                     </div>
                 </div>
                 
@@ -160,7 +187,7 @@
                     <!-- Card 02 - Música en vivo -->
                     <div class="experience-card reveal-up">
                         <div class="card-image-wrapper">
-                            <img src="assets/dua_musica_vivo.png" alt="Música en vivo en DUA" class="card-img">
+                            <img src="assets/dua_musica_vivo.jpg" alt="Música en vivo en DUA" class="card-img">
                         </div>
                         <div class="card-body">
                             <div class="card-number-badge">02</div>
@@ -193,42 +220,62 @@
         <section id="agenda" class="agenda-section">
             <div class="glow-bubble glow-sand"></div>
             <div class="section-container">
-                <div class="agenda-grid">
-                    
-                    <div class="agenda-intro reveal-up">
-                        <span class="eyebrow">Próximos eventos</span>
-                        <h2 class="section-title">Agenda</h2>
-                        <p class="agenda-subtitle">
-                            Todavía estamos afinando los últimos detalles. Muy pronto vas a poder ver acá la programación completa.
-                        </p>
-                    </div>
-                    
-                    <div class="agenda-card-wrapper reveal-up" style="animation-delay: 0.15s;">
-                        <div class="agenda-card">
-                            <div class="agenda-date">
-                                <span class="month">SEP</span>
-                                <span class="year">2026</span>
-                            </div>
-                            <div class="agenda-card-content">
-                                <span class="agenda-tag">Destacado</span>
-                                <h3 class="agenda-event-title">Apertura de DUA</h3>
-                                <p class="agenda-event-desc">
-                                    DUA abre sus puertas en Caballito. Seguinos en Instagram para enterarte primero y participar de la noche de inauguración.
+                <div class="agenda-intro reveal-up">
+                    <span class="eyebrow">Agenda</span>
+                    <h2 class="agenda-giant-title">
+                        <span class="title-line white">Próximos eventos</span>
+                        <span class="title-line crimson">Nuestras noches en vivo</span>
+                        <span class="title-line white">Jazz, vinilos y encuentros</span>
+                    </h2>
+                    <p class="agenda-subtitle">
+                        Todavía estamos afinando los últimos detalles. Muy pronto vas a poder ver acá la programación completa de shows y experiencias.
+                    </p>
+                </div>
+                
+                <div class="agenda-events-showcase">
+                    <!-- Event 1: Apertura -->
+                    <div class="agenda-event-block reveal-up">
+                        <div class="event-image-container">
+                            <img src="assets/dua_agenda_apertura.jpg" alt="Inauguración de DUA" class="event-img">
+                        </div>
+                        <div class="event-details-card">
+                            <div>
+                                <span class="event-badge">Gran Apertura</span>
+                                <h3 class="event-card-title">Inauguración Oficial</h3>
+                                <p class="event-card-text">
+                                    DUA abre sus puertas en Caballito. Una noche inaugural con jazz en vivo, coctelería de autor y la mejor gastronomía en nuestro jardín.
                                 </p>
-                                <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="btn btn-crimson" id="instagram-cta-btn">
-                                    <span>Ver novedades en Instagram</span>
-                                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                                        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
-                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-                                    </svg>
+                            </div>
+                            <div class="event-footer">
+                                <span class="event-date-text">Septiembre 2026</span>
+                                <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="event-action-link">
+                                    Seguir &rarr;
                                 </a>
                             </div>
                         </div>
-                        
-
                     </div>
-                    
+
+                    <!-- Event 2: Ciclos Analógicos -->
+                    <div class="agenda-event-block reveal-up" style="animation-delay: 0.15s;">
+                        <div class="event-image-container">
+                            <img src="assets/dua_agenda_analogico.jpg" alt="Ciclos de vinilo y jazz en DUA" class="event-img">
+                        </div>
+                        <div class="event-details-card">
+                            <div>
+                                <span class="event-badge">Ciclo Semanal</span>
+                                <h3 class="event-card-title">Sesiones Analógicas</h3>
+                                <p class="event-card-text">
+                                    Sesiones semanales de escucha atenta en vinilo y presentaciones en formato acústico. Un espacio íntimo curado por melómanos y músicos invitados.
+                                </p>
+                            </div>
+                            <div class="event-footer">
+                                <span class="event-date-text">Próximamente</span>
+                                <a href="#reservas" class="event-action-link">
+                                    Reservar &rarr;
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -248,68 +295,68 @@
                 <!-- Gallery Grid -->
                 <div class="gallery-grid">
                     
-                    <!-- Gallery Item 1 - Interior -->
-                    <div class="gallery-item reveal-up" data-index="0" data-src="assets/dua_espacio_interior.png" data-title="Interior" data-subtitle="Ambiente cálido, madera y luces tenues">
+                    <!-- Gallery Item 1 - Bateria -->
+                    <div class="gallery-item reveal-up" data-index="0" data-src="assets/dua_galeria_bateria.jpg" data-title="Batería">
                         <div class="gallery-img-container">
-                            <img src="assets/dua_espacio_interior.png" alt="Interior de DUA" class="gallery-img">
-                            <div class="gallery-overlay">
-                                <div class="gallery-meta">
-                                    <span class="gallery-category">Espacio</span>
-                                    <h4 class="gallery-item-title">Interior</h4>
-                                </div>
-                                <span class="gallery-zoom-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
-                                    </svg>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Gallery Item 2 - Barra -->
-                    <div class="gallery-item reveal-up" data-index="1" data-src="assets/dua_espacio_barra.png" data-title="Barra" data-subtitle="Coctelería de autor diseñada para la noche">
-                        <div class="gallery-img-container">
-                            <img src="assets/dua_espacio_barra.png" alt="Barra de DUA" class="gallery-img">
-                            <div class="gallery-overlay">
-                                <div class="gallery-meta">
-                                    <span class="gallery-category">Experiencia</span>
-                                    <h4 class="gallery-item-title">Barra</h4>
-                                </div>
-                                <span class="gallery-zoom-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
-                                    </svg>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Gallery Item 3 - Jardín -->
-                    <div class="gallery-item reveal-up" data-index="2" data-src="assets/dua_espacio_jardin.png" data-title="Jardín" data-subtitle="Espacio exterior rodeado de verde, un refugio en la ciudad">
-                        <div class="gallery-img-container">
-                            <img src="assets/dua_espacio_jardin.png" alt="Jardín de DUA" class="gallery-img">
-                            <div class="gallery-overlay">
-                                <div class="gallery-meta">
-                                    <span class="gallery-category">Espacio</span>
-                                    <h4 class="gallery-item-title">Jardín</h4>
-                                </div>
-                                <span class="gallery-zoom-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
-                                    </svg>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Gallery Item 4 - Vinilos -->
-                    <div class="gallery-item reveal-up" data-index="3" data-src="assets/dua_espacio_vinilos.png" data-title="Vinilos" data-subtitle="Selección musical cuidada en formato analógico">
-                        <div class="gallery-img-container">
-                            <img src="assets/dua_espacio_vinilos.png" alt="Vinilos de DUA" class="gallery-img">
+                            <img src="assets/dua_galeria_bateria.jpg" alt="Batería de jazz en DUA" class="gallery-img">
                             <div class="gallery-overlay">
                                 <div class="gallery-meta">
                                     <span class="gallery-category">Cultura</span>
-                                    <h4 class="gallery-item-title">Vinilos</h4>
+                                    <h4 class="gallery-item-title">Batería</h4>
+                                </div>
+                                <span class="gallery-zoom-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Gallery Item 2 - Saxofon -->
+                    <div class="gallery-item reveal-up" data-index="1" data-src="assets/dua_galeria_saxofon.jpg" data-title="Saxofón">
+                        <div class="gallery-img-container">
+                            <img src="assets/dua_galeria_saxofon.jpg" alt="Saxofonista tocando en vivo" class="gallery-img">
+                            <div class="gallery-overlay">
+                                <div class="gallery-meta">
+                                    <span class="gallery-category">Música</span>
+                                    <h4 class="gallery-item-title">Saxofón</h4>
+                                </div>
+                                <span class="gallery-zoom-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Gallery Item 3 - Show 1 -->
+                    <div class="gallery-item reveal-up" data-index="2" data-src="assets/dua_galeria_show1.jpg" data-title="El Ritmo">
+                        <div class="gallery-img-container">
+                            <img src="assets/dua_galeria_show1.jpg" alt="Show de música en vivo en DUA" class="gallery-img">
+                            <div class="gallery-overlay">
+                                <div class="gallery-meta">
+                                    <span class="gallery-category">Show</span>
+                                    <h4 class="gallery-item-title">El Ritmo</h4>
+                                </div>
+                                <span class="gallery-zoom-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Gallery Item 4 - Show 2 -->
+                    <div class="gallery-item reveal-up" data-index="3" data-src="assets/dua_galeria_show2.jpg" data-title="Escenario">
+                        <div class="gallery-img-container">
+                            <img src="assets/dua_galeria_show2.jpg" alt="Escenario de jazz en DUA" class="gallery-img">
+                            <div class="gallery-overlay">
+                                <div class="gallery-meta">
+                                    <span class="gallery-category">Experiencia</span>
+                                    <h4 class="gallery-item-title">Escenario</h4>
                                 </div>
                                 <span class="gallery-zoom-icon">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -328,6 +375,10 @@
 
         <!-- 6. CONTACTO Y RESERVAS SECTION -->
         <section id="reservas" class="booking-section">
+            <div class="booking-bg-container">
+                <div class="booking-bg-image"></div>
+                <div class="booking-bg-overlay"></div>
+            </div>
             <div class="glow-bubble glow-red"></div>
             <div class="section-container">
                 <div class="booking-grid">
@@ -449,8 +500,7 @@
         
         <div class="footer-bottom">
             <div class="section-container footer-bottom-container">
-                <p class="copyright">&copy; 2026 DUA Music Club. Todos los derechos reservados.</p>
-                <p class="developer">Diseño de Experiencia Premium</p>
+                <p class="developer" style="margin: 0 auto;"><a href="https://tehuentec.com" target="_blank" rel="noopener noreferrer">Diseño web en Argentina tehuentec.com</a></p>
             </div>
         </div>
     </footer>
@@ -465,21 +515,13 @@
             <div class="lightbox-caption">
                 <span class="lightbox-category" id="lightbox-category">Categoría</span>
                 <h3 class="lightbox-title" id="lightbox-title">Título de Imagen</h3>
-                <p class="lightbox-desc" id="lightbox-desc">Descripción detallada</p>
             </div>
         </div>
         
         <button class="lightbox-arrow lightbox-arrow-right" id="lightbox-next" aria-label="Siguiente imagen">&#8250;</button>
     </div>
 
-    <!-- SVG Clip Path Definition for Keyhole Mask -->
-    <svg width="0" height="0" style="position: absolute; z-index: -1;">
-        <defs>
-            <clipPath id="keyhole-clip" clipPathUnits="objectBoundingBox">
-                <path d="M 0.28 0.48 A 0.26 0.26 0 1 1 0.72 0.48 L 0.84 0.95 L 0.16 0.95 Z" />
-            </clipPath>
-        </defs>
-    </svg>
+
 
     <!-- Custom JS -->
     <script src="script.js"></script>

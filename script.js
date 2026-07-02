@@ -97,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxCategory = document.getElementById('lightbox-category');
     const lightboxTitle = document.getElementById('lightbox-title');
-    const lightboxDesc = document.getElementById('lightbox-desc');
     const lightboxClose = document.getElementById('lightbox-close');
     const lightboxPrev = document.getElementById('lightbox-prev');
     const lightboxNext = document.getElementById('lightbox-next');
@@ -106,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const galleryData = Array.from(galleryItems).map(item => ({
         src: item.getAttribute('data-src'),
         title: item.getAttribute('data-title'),
-        subtitle: item.getAttribute('data-subtitle'),
         category: item.querySelector('.gallery-category').textContent
     }));
 
@@ -137,7 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
             lightboxImg.alt = photo.title;
             lightboxCategory.textContent = photo.category;
             lightboxTitle.textContent = photo.title;
-            lightboxDesc.textContent = photo.subtitle;
             
             // Fade image back in
             lightboxImg.style.opacity = '1';
