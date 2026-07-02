@@ -16,9 +16,9 @@
     --color-glass-border: rgba(206, 186, 175, 0.15);
     
     /* Typography */
-    --font-primary: 'Public Sans', sans-serif;
-    --font-secondary: 'Gotham', 'Public Sans', sans-serif;
-    --font-display: 'Gotham', 'Public Sans', sans-serif;
+    --font-primary: 'Red Hat Display', sans-serif;
+    --font-secondary: 'acumin-pro-extra-condensed', 'Acumin Extra Condensed', 'Acumin Pro Extra Condensed', 'Acumin', var(--font-primary);
+    --font-display: 'acumin-pro-extra-condensed', 'Acumin Extra Condensed', 'Acumin Pro Extra Condensed', 'Acumin', var(--font-primary);
     
     /* Spacing */
     --spacing-xs: 0.5rem;
