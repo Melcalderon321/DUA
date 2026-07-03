@@ -40,7 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Close menu when clicking navigation links or the action button
     navLinks.forEach(link => link.addEventListener('click', closeMenu));
-    navBookingBtn.addEventListener('click', closeMenu);
+    if (navBookingBtn) {
+        navBookingBtn.addEventListener('click', closeMenu);
+    }
 
 
     /* 3. ACTIVE SECTION HIGHLIGHT ON SCROLL */
@@ -91,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     revealItems.forEach(item => revealObserver.observe(item));
 
 
-    /* 5. EL ESPACIO: GALLERY LIGHTBOX SYSTEM */
+    /* 5. EL ESPACIO: 3D COVERFLOW CAROUSEL & LIGHTBOX SYSTEM */
     const galleryItems = document.querySelectorAll('.gallery-item');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
@@ -100,34 +102,97 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxClose = document.getElementById('lightbox-close');
     const lightboxPrev = document.getElementById('lightbox-prev');
     const lightboxNext = document.getElementById('lightbox-next');
+    const prevBtn = document.querySelector('.carousel-arrow.prev');
+    const nextBtn = document.querySelector('.carousel-arrow.next');
 
-    // Build the playlist/gallery dataset array for quick cycling
-    const galleryData = Array.from(galleryItems).map(item => ({
-        src: item.getAttribute('data-src'),
-        title: item.getAttribute('data-title'),
-        category: item.querySelector('.gallery-category').textContent
-    }));
+    // Build the playlist/gallery dataset array for lightbox cycling
+    const galleryData = Array.from(galleryItems).map(item => {
+        const catEl = item.querySelector('.gallery-category');
+        return {
+            src: item.getAttribute('data-src'),
+            title: item.getAttribute('data-title'),
+            category: catEl ? catEl.textContent : ''
+        };
+    });
 
+    let activeIndex = 2; // Default starting slide: Coctelería
     let currentPhotoIndex = 0;
+    let autoplayInterval = null;
+    const autoplayDelay = 3500; // 3.5 seconds
 
+    // Autoplay controller functions
+    const startAutoplay = () => {
+        stopAutoplay();
+        autoplayInterval = setInterval(() => {
+            activeIndex = (activeIndex + 1) % galleryItems.length;
+            updateCarousel();
+        }, autoplayDelay);
+    };
+
+    const stopAutoplay = () => {
+        if (autoplayInterval) {
+            clearInterval(autoplayInterval);
+            autoplayInterval = null;
+        }
+    };
+
+    const resetAutoplay = () => {
+        startAutoplay();
+    };
+
+    // Coverflow update logic
+    const updateCarousel = () => {
+        const total = galleryItems.length;
+        galleryItems.forEach((item, idx) => {
+            // Clear coverflow layout classes
+            item.classList.remove('active-slide', 'prev-1', 'next-1', 'prev-2', 'next-2', 'hidden-slide');
+
+            let diff = idx - activeIndex;
+
+            // Calculate circular distance
+            diff = ((diff % total) + total) % total;
+            if (diff > total / 2) {
+                diff -= total;
+            }
+
+            // Assign structural layout classes
+            if (diff === 0) {
+                item.classList.add('active-slide');
+            } else if (diff === -1) {
+                item.classList.add('prev-1');
+            } else if (diff === 1) {
+                item.classList.add('next-1');
+            } else if (diff === -2) {
+                item.classList.add('prev-2');
+            } else if (diff === 2) {
+                item.classList.add('next-2');
+            } else {
+                item.classList.add('hidden-slide');
+            }
+        });
+    };
+
+    // Open lightbox
     const openLightbox = (index) => {
+        stopAutoplay(); // Stop auto sliding when overlay is open
         currentPhotoIndex = parseInt(index);
         updateLightboxContent();
         lightbox.classList.add('active');
         lightbox.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden'; // Stop background scroll
+        document.body.style.overflow = 'hidden'; // Lock scrolling
     };
 
+    // Close lightbox
     const closeLightbox = () => {
         lightbox.classList.remove('active');
         lightbox.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = ''; // Restore scroll
+        document.body.style.overflow = ''; // Restore scrolling
+        startAutoplay(); // Resume auto sliding
     };
 
+    // Lightbox image loading
     const updateLightboxContent = () => {
         const photo = galleryData[currentPhotoIndex];
-        
-        // Add fade out animation class briefly
         lightboxImg.style.opacity = '0';
         
         setTimeout(() => {
@@ -135,12 +200,11 @@ document.addEventListener('DOMContentLoaded', () => {
             lightboxImg.alt = photo.title;
             lightboxCategory.textContent = photo.category;
             lightboxTitle.textContent = photo.title;
-            
-            // Fade image back in
             lightboxImg.style.opacity = '1';
         }, 150);
     };
 
+    // Lightbox directional navigation
     const navigateLightbox = (direction) => {
         if (direction === 'next') {
             currentPhotoIndex = (currentPhotoIndex + 1) % galleryData.length;
@@ -150,15 +214,42 @@ document.addEventListener('DOMContentLoaded', () => {
         updateLightboxContent();
     };
 
-    // Bind triggers to gallery items
-    galleryItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const index = item.getAttribute('data-index');
-            openLightbox(index);
+    // Click behavior on items
+    galleryItems.forEach((item, idx) => {
+        item.addEventListener('click', (e) => {
+            if (idx === activeIndex) {
+                const index = item.getAttribute('data-index');
+                openLightbox(index);
+            } else {
+                e.preventDefault();
+                e.stopPropagation();
+                activeIndex = idx;
+                updateCarousel();
+                resetAutoplay(); // Reset timer on manual navigation
+            }
         });
     });
 
-    // Close controls
+    // Arrow keys or buttons
+    if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            activeIndex = (activeIndex - 1 + galleryItems.length) % galleryItems.length;
+            updateCarousel();
+            resetAutoplay();
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            activeIndex = (activeIndex + 1) % galleryItems.length;
+            updateCarousel();
+            resetAutoplay();
+        });
+    }
+
+    // Lightbox controls
     lightboxClose.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) {
@@ -166,7 +257,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Nav controls
     lightboxPrev.addEventListener('click', (e) => {
         e.stopPropagation();
         navigateLightbox('prev');
@@ -176,20 +266,60 @@ document.addEventListener('DOMContentLoaded', () => {
         navigateLightbox('next');
     });
 
-    // Keyboard support
+    // Dual-purpose keyboard navigation
     document.addEventListener('keydown', (e) => {
-        if (!lightbox.classList.contains('active')) return;
-        
-        if (e.key === 'Escape') {
-            closeLightbox();
-        } else if (e.key === 'ArrowRight') {
-            navigateLightbox('next');
-        } else if (e.key === 'ArrowLeft') {
-            navigateLightbox('prev');
+        if (lightbox.classList.contains('active')) {
+            // Lightbox navigation
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowRight') {
+                navigateLightbox('next');
+            } else if (e.key === 'ArrowLeft') {
+                navigateLightbox('prev');
+            }
+        } else {
+            // Space Gallery swiper navigation
+            if (e.key === 'ArrowRight') {
+                activeIndex = (activeIndex + 1) % galleryItems.length;
+                updateCarousel();
+                resetAutoplay();
+            } else if (e.key === 'ArrowLeft') {
+                activeIndex = (activeIndex - 1 + galleryItems.length) % galleryItems.length;
+                updateCarousel();
+                resetAutoplay();
+            }
         }
     });
 
-    // Smooth transition styles for lightbox image fade
+    // Fade animation setup
     lightboxImg.style.transition = 'opacity 0.2s ease-in-out';
+
+    // Accordion Toggle Logic
+    const accordionTriggers = document.querySelectorAll('.accordion-trigger');
+    accordionTriggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const currentItem = trigger.parentElement;
+            const isOpen = currentItem.classList.contains('active');
+            
+            // Close other items to behave like a single-open accordion list
+            document.querySelectorAll('.accordion-item').forEach(item => {
+                item.classList.remove('active');
+                const content = item.querySelector('.accordion-content');
+                if (content) content.style.maxHeight = null;
+            });
+
+            if (!isOpen) {
+                currentItem.classList.add('active');
+                const content = currentItem.querySelector('.accordion-content');
+                if (content) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            }
+        });
+    });
+
+    // Initialize Coverflow Carousel & Autoplay
+    updateCarousel();
+    startAutoplay();
 
 });
