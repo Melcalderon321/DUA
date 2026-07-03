@@ -1219,6 +1219,23 @@ section {
     overflow: hidden;
 }
 
+.quote-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/Gemini_Generated_Image_a2rcw9a2rcw9a2rc.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.18;
+    z-index: 1;
+    pointer-events: none;
+    -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 15%, rgba(0,0,0,0) 80%);
+    mask-image: radial-gradient(circle, rgba(0,0,0,1) 15%, rgba(0,0,0,0) 80%);
+}
+
 @keyframes slowSmokeLeft {
     0% {
         transform: translate(-10%, -50%) scale(1) rotate(0deg);
@@ -1291,19 +1308,19 @@ section {
 .quote-editorial-text {
     font-family: var(--font-display);
     font-style: normal;
-    font-size: clamp(1.3rem, 2.8vw, 2.1rem);
-    text-transform: none;
-    letter-spacing: -0.01em;
-    color: rgba(245, 241, 232, 0.95);
+    font-size: clamp(1.6rem, 3.8vw, 2.8rem);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    color: var(--color-cream);
     font-weight: 300;
-    line-height: 1.4;
+    line-height: 1.05;
     margin: 0;
     display: block;
 }
 
 .quote-editorial-text.highlight-crimson {
     color: var(--color-crimson);
-    font-weight: 700;
+    font-weight: 300;
 }
 
 .exp-giant-text {
