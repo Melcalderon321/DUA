@@ -548,7 +548,6 @@ section {
     background-color: var(--color-black);
     position: relative;
     overflow: hidden;
-    border-bottom: 1px solid rgba(206, 186, 175, 0.05);
 }
 
 /* Hero Intro Section — below the full-screen image */
@@ -556,7 +555,6 @@ section {
     background-color: var(--color-black);
     padding: 5rem 0 4rem;
     position: relative;
-    border-bottom: 1px solid rgba(206, 186, 175, 0.05);
 }
 
 .hero-intro-container {
