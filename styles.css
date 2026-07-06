@@ -1178,7 +1178,7 @@ section {
 }
 
 .about-title-large span {
-    color: var(--color-crimson);
+    color: var(--color-cream);
 }
 
 .about-lead {
@@ -1504,12 +1504,12 @@ section {
 .quote-editorial-text {
     font-family: var(--font-display);
     font-style: normal;
-    font-size: clamp(1.6rem, 3.8vw, 2.8rem);
+    font-size: clamp(1.4rem, 3.3vw, 2.4rem);
     text-transform: uppercase;
     letter-spacing: -0.02em;
     color: var(--color-cream);
     font-weight: 300;
-    line-height: 1.05;
+    line-height: 1.25;
     margin: 0;
     display: block;
 }
