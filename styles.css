@@ -587,11 +587,29 @@ section {
 }
 
 @media (max-width: 767px) {
+    .hero-intro-container {
+        text-align: center;
+        gap: 1.8rem;
+    }
+    
+    .hero-intro-left {
+        align-items: center;
+    }
+
     .hero-intro-right {
         border-left: none;
         padding-left: 0;
         border-top: 1px solid rgba(206, 186, 175, 0.15);
         padding-top: 2rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-desc {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1.2rem;
     }
 }
 
@@ -599,7 +617,37 @@ section {
     display: flex;
     gap: 1.2rem;
     flex-wrap: wrap;
+    width: 100%;
 }
+
+.hero-actions-right .btn {
+    flex: 1;
+    min-width: 220px;
+    max-width: 260px;
+    text-align: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+    .hero-actions-right {
+        flex-direction: row;
+        gap: 0.5rem;
+        width: 100%;
+        flex-wrap: nowrap;
+    }
+    
+    .hero-actions-right .btn {
+        flex: 1 1 0%;
+        min-width: 0 !important;
+        max-width: none !important;
+        padding: 0.8rem 0.25rem !important;
+        font-size: 0.64rem !important;
+        letter-spacing: 0.05em !important;
+        white-space: nowrap !important;
+    }
+}
+
 
 /* Background Image with Ken Burns animation */
 .hero-bg-container {
@@ -689,6 +737,12 @@ section {
     background-size: 130%;
     background-position: center 20%;
     background-repeat: no-repeat;
+}
+
+@media (max-width: 767px) {
+    .hero-bg-image {
+        background-size: cover;
+    }
 }
 
 .hero-bg-overlay {
@@ -1880,130 +1934,60 @@ section {
     text-transform: uppercase;
 }
 
-/* 3D COVERFLOW GALLERY CAROUSEL */
-.gallery-carousel-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 1380px;
-    margin: 3.5rem auto 0 auto;
-    padding: 3rem 1.5rem 5rem 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: visible;
-}
-
-/* Background red glow like the reference image */
+/* GENERIC HUB LIQUID-THEMES GALLERY STYLE (FLAT CAROUSEL) */
 .space-section {
     position: relative;
 }
 
-.gallery-carousel-track {
+.gallery-carousel-wrapper {
     position: relative;
     width: 100%;
-    height: 480px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    perspective: 1200px;
-    transform-style: preserve-3d;
+    max-width: var(--container-max-width);
+    margin: 3.5rem auto 0 auto;
+    padding: 0 4rem 2rem 4rem; /* padding leaves space for arrows at edges */
+    overflow: hidden; /* clips slides extending past container */
     z-index: 2;
 }
 
-@media (max-width: 767px) {
-    .gallery-carousel-track {
-        height: 380px;
-    }
+.gallery-carousel-track {
+    display: flex;
+    gap: 1.5rem;
+    width: 100%;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-style: flat;
 }
 
 .gallery-item {
-    position: absolute;
-    width: 280px;
-    height: 400px;
+    position: relative;
+    flex-shrink: 0; /* prevents flex from shrinking the cards */
+    width: calc(33.333% - 1rem); /* 3 columns visible on desktop */
+    height: 380px;
     border-radius: 0;
     overflow: hidden;
     cursor: pointer;
     background-color: var(--color-black);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 5px 15px rgba(0, 0, 0, 0.4);
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
-                opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
-                filter 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    transform-style: preserve-3d;
-    z-index: 1;
-    pointer-events: auto;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
     .gallery-item {
-        width: 200px;
-        height: 300px;
+        width: calc(50% - 0.75rem); /* 2 columns visible on tablet */
+        height: 320px;
+    }
+    .gallery-carousel-wrapper {
+        padding: 0 3.2rem 2rem 3.2rem;
     }
 }
 
-/* 3D coverflow states for items */
-.gallery-item.active-slide {
-    transform: translate3d(0, 0, 150px) scale(1.1);
-    z-index: 10;
-    opacity: 1;
-    filter: none;
-    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.8);
-}
-
-.gallery-item.prev-1 {
-    transform: translate3d(-290px, 0, 40px) scale(0.9) rotateY(20deg);
-    z-index: 5;
-    opacity: 0.88;
-    filter: brightness(0.72);
-}
-
-.gallery-item.next-1 {
-    transform: translate3d(290px, 0, 40px) scale(0.9) rotateY(-20deg);
-    z-index: 5;
-    opacity: 0.88;
-    filter: brightness(0.72);
-}
-
-.gallery-item.prev-2 {
-    transform: translate3d(-520px, 0, -80px) scale(0.75) rotateY(35deg);
-    z-index: 2;
-    opacity: 0.65;
-    filter: brightness(0.55);
-}
-
-.gallery-item.next-2 {
-    transform: translate3d(520px, 0, -80px) scale(0.75) rotateY(-35deg);
-    z-index: 2;
-    opacity: 0.65;
-    filter: brightness(0.55);
-}
-
-/* Hidden items outside display area */
-.gallery-item.hidden-slide {
-    transform: translate3d(0, 0, -250px) scale(0.5);
-    opacity: 0;
-    z-index: 0;
-    pointer-events: none;
-}
-
-/* Mobile responsive transform overrides */
-@media (max-width: 767px) {
-    .gallery-item.active-slide {
-        transform: translate3d(0, 0, 80px) scale(1.05);
+@media (max-width: 575px) {
+    .gallery-item {
+        width: 100%; /* 1 column visible on mobile */
+        height: 280px;
     }
-    .gallery-item.prev-1 {
-        transform: translate3d(-130px, 0, 10px) scale(0.85) rotateY(15deg);
-    }
-    .gallery-item.next-1 {
-        transform: translate3d(130px, 0, 10px) scale(0.85) rotateY(-15deg);
-    }
-    .gallery-item.prev-2 {
-        transform: translate3d(-240px, 0, -50px) scale(0.7) rotateY(25deg);
-        opacity: 0.2;
-    }
-    .gallery-item.next-2 {
-        transform: translate3d(240px, 0, -50px) scale(0.7) rotateY(-25deg);
-        opacity: 0.2;
+    .gallery-carousel-wrapper {
+        padding: 0 2.5rem 2rem 2.5rem;
     }
 }
 
@@ -2011,110 +1995,93 @@ section {
     width: 100%;
     height: 100%;
     position: relative;
+    overflow: hidden;
 }
 
 .gallery-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.gallery-item.active-slide:hover .gallery-img {
-    transform: scale(1.04);
+/* Hover Zoom Effect */
+.gallery-item:hover .gallery-img {
+    transform: scale(1.08);
 }
 
-/* Clean title overlays at bottom of each card, visible by default with dark gradient like the reference */
-.gallery-overlay {
+/* Generic Hub Liquid Themes Hover Overlay with Lightbox sign */
+.gallery-img-container::after {
+    content: '+';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0) 100%);
+    background-color: rgba(208, 96, 46, 0.38); /* elegant copper tint */
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 1.8rem 1.5rem;
-    z-index: 2;
-    transition: opacity 0.4s ease;
-}
-
-.gallery-meta {
-    transform: none;
-    transition: none;
-}
-
-.gallery-category {
-    font-family: var(--font-secondary);
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--color-crimson);
-    display: block;
-    margin-bottom: 4px;
-}
-
-.gallery-item-title {
+    align-items: center;
+    justify-content: center;
+    font-size: 2.8rem;
     font-family: var(--font-display);
-    font-size: 1.3rem;
     color: var(--color-cream);
-    letter-spacing: 0.02em;
-    font-weight: 500;
-    margin: 0;
+    font-weight: 300;
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 2;
 }
 
-/* Hide zoom icons from layout to match cleaner Netflix/HBO poster look */
-.gallery-zoom-icon {
-    display: none !important;
+.gallery-item:hover .gallery-img-container::after {
+    opacity: 1;
 }
 
-/* Slider navigation arrows */
+/* Carousel Navigation Arrows */
 .carousel-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background-color: rgba(36, 36, 36, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(36, 36, 36, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     color: var(--color-cream);
-    font-size: 2rem;
+    font-size: 1.8rem;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 15;
+    z-index: 10;
     transition: all var(--transition-fast);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     line-height: 1;
 }
 
 .carousel-arrow:hover {
-    background-color: var(--color-crimson);
-    border-color: var(--color-crimson);
-    box-shadow: 0 0 20px rgba(170, 10, 36, 0.4);
+    background-color: var(--color-copper);
+    border-color: var(--color-copper);
+    box-shadow: 0 0 15px rgba(208, 96, 46, 0.4);
 }
 
 .carousel-arrow.prev {
-    left: 0.5rem;
+    left: 1rem;
 }
 
 .carousel-arrow.next {
-    right: 0.5rem;
+    right: 1rem;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 575px) {
     .carousel-arrow {
-        width: 40px;
-        height: 40px;
-        font-size: 1.5rem;
+        width: 36px;
+        height: 36px;
+        font-size: 1.4rem;
     }
     .carousel-arrow.prev {
-        left: 0.5rem;
+        left: 0.4rem;
     }
     .carousel-arrow.next {
-        right: 0.5rem;
+        right: 0.4rem;
     }
 }
 
@@ -2536,35 +2503,6 @@ section {
     box-shadow: 0 30px 100px rgba(0, 0, 0, 0.8);
 }
 
-.lightbox-caption {
-    width: 100%;
-    max-width: 700px;
-    padding-top: 1.8rem;
-    text-align: center;
-    color: var(--color-sand);
-}
-
-.lightbox-category {
-    font-family: var(--font-secondary);
-    font-size: 0.65rem;
-    font-weight: 500;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--color-crimson);
-    display: block;
-    margin-bottom: 5px;
-}
-
-.lightbox-title {
-    font-size: 2.2rem;
-    margin-bottom: 0.5rem;
-}
-
-.lightbox-desc {
-    font-size: 0.95rem;
-    opacity: 0.75;
-    line-height: 1.5;
-}
 
 @media (max-width: 768px) {
     .lightbox-arrow {

@@ -121,8 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const galleryItems = document.querySelectorAll('.gallery-item');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxCategory = document.getElementById('lightbox-category');
-    const lightboxTitle = document.getElementById('lightbox-title');
     const lightboxClose = document.getElementById('lightbox-close');
     const lightboxPrev = document.getElementById('lightbox-prev');
     const lightboxNext = document.getElementById('lightbox-next');
@@ -139,66 +137,46 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     });
 
-    let activeIndex = 2; // Default starting slide: Coctelería
     let currentPhotoIndex = 0;
-    let autoplayInterval = null;
-    const autoplayDelay = 3500; // 3.5 seconds
+    let currentIndex = 0;
 
-    // Autoplay controller functions
-    const startAutoplay = () => {
-        stopAutoplay();
-        autoplayInterval = setInterval(() => {
-            activeIndex = (activeIndex + 1) % galleryItems.length;
-            updateCarousel();
-        }, autoplayDelay);
+    const getVisibleItemsCount = () => {
+        const width = window.innerWidth;
+        if (width > 991) return 3;
+        if (width > 575) return 2;
+        return 1;
     };
 
-    const stopAutoplay = () => {
-        if (autoplayInterval) {
-            clearInterval(autoplayInterval);
-            autoplayInterval = null;
+    const updateCarouselPosition = () => {
+        const visibleCount = getVisibleItemsCount();
+        const maxIndex = Math.max(0, galleryItems.length - visibleCount);
+        
+        if (currentIndex > maxIndex) {
+            currentIndex = maxIndex;
         }
-    };
 
-    const resetAutoplay = () => {
-        startAutoplay();
-    };
+        const track = document.querySelector('.gallery-carousel-track');
+        if (!track || galleryItems.length === 0) return;
 
-    // Coverflow update logic
-    const updateCarousel = () => {
-        const total = galleryItems.length;
-        galleryItems.forEach((item, idx) => {
-            // Clear coverflow layout classes
-            item.classList.remove('active-slide', 'prev-1', 'next-1', 'prev-2', 'next-2', 'hidden-slide');
+        const itemWidth = galleryItems[0].getBoundingClientRect().width;
+        const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+        const amountToMove = currentIndex * (itemWidth + gap);
+        
+        track.style.transform = `translateX(-${amountToMove}px)`;
 
-            let diff = idx - activeIndex;
-
-            // Calculate circular distance
-            diff = ((diff % total) + total) % total;
-            if (diff > total / 2) {
-                diff -= total;
-            }
-
-            // Assign structural layout classes
-            if (diff === 0) {
-                item.classList.add('active-slide');
-            } else if (diff === -1) {
-                item.classList.add('prev-1');
-            } else if (diff === 1) {
-                item.classList.add('next-1');
-            } else if (diff === -2) {
-                item.classList.add('prev-2');
-            } else if (diff === 2) {
-                item.classList.add('next-2');
-            } else {
-                item.classList.add('hidden-slide');
-            }
-        });
+        // Update button opacity and interactive states
+        if (prevBtn) {
+            prevBtn.style.opacity = currentIndex === 0 ? '0.35' : '1';
+            prevBtn.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
+        }
+        if (nextBtn) {
+            nextBtn.style.opacity = currentIndex === maxIndex ? '0.35' : '1';
+            nextBtn.style.pointerEvents = currentIndex === maxIndex ? 'none' : 'auto';
+        }
     };
 
     // Open lightbox
     const openLightbox = (index) => {
-        stopAutoplay(); // Stop auto sliding when overlay is open
         currentPhotoIndex = parseInt(index);
         updateLightboxContent();
         lightbox.classList.add('active');
@@ -211,7 +189,6 @@ document.addEventListener('DOMContentLoaded', () => {
         lightbox.classList.remove('active');
         lightbox.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = ''; // Restore scrolling
-        startAutoplay(); // Resume auto sliding
     };
 
     // Lightbox image loading
@@ -222,8 +199,6 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             lightboxImg.src = photo.src;
             lightboxImg.alt = photo.title;
-            lightboxCategory.textContent = photo.category;
-            lightboxTitle.textContent = photo.title;
             lightboxImg.style.opacity = '1';
         }, 150);
     };
@@ -240,36 +215,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Click behavior on items
     galleryItems.forEach((item, idx) => {
-        item.addEventListener('click', (e) => {
-            if (idx === activeIndex) {
-                const index = item.getAttribute('data-index');
-                openLightbox(index);
-            } else {
-                e.preventDefault();
-                e.stopPropagation();
-                activeIndex = idx;
-                updateCarousel();
-                resetAutoplay(); // Reset timer on manual navigation
-            }
+        item.addEventListener('click', () => {
+            const index = item.getAttribute('data-index');
+            openLightbox(index);
         });
     });
 
-    // Arrow keys or buttons
-    if (prevBtn) {
-        prevBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            activeIndex = (activeIndex - 1 + galleryItems.length) % galleryItems.length;
-            updateCarousel();
-            resetAutoplay();
-        });
-    }
-
+    // Arrow navigation for carousel
     if (nextBtn) {
         nextBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            activeIndex = (activeIndex + 1) % galleryItems.length;
-            updateCarousel();
-            resetAutoplay();
+            const visibleCount = getVisibleItemsCount();
+            const maxIndex = Math.max(0, galleryItems.length - visibleCount);
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+                updateCarouselPosition();
+            }
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarouselPosition();
+            }
         });
     }
 
@@ -290,10 +261,9 @@ document.addEventListener('DOMContentLoaded', () => {
         navigateLightbox('next');
     });
 
-    // Dual-purpose keyboard navigation
+    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (lightbox.classList.contains('active')) {
-            // Lightbox navigation
             if (e.key === 'Escape') {
                 closeLightbox();
             } else if (e.key === 'ArrowRight') {
@@ -301,19 +271,11 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (e.key === 'ArrowLeft') {
                 navigateLightbox('prev');
             }
-        } else {
-            // Space Gallery swiper navigation
-            if (e.key === 'ArrowRight') {
-                activeIndex = (activeIndex + 1) % galleryItems.length;
-                updateCarousel();
-                resetAutoplay();
-            } else if (e.key === 'ArrowLeft') {
-                activeIndex = (activeIndex - 1 + galleryItems.length) % galleryItems.length;
-                updateCarousel();
-                resetAutoplay();
-            }
         }
     });
+
+    // Handle carousel resize adjustments
+    window.addEventListener('resize', updateCarouselPosition);
 
     // Fade animation setup
     lightboxImg.style.transition = 'opacity 0.2s ease-in-out';
@@ -342,8 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Initialize Coverflow Carousel & Autoplay
-    updateCarousel();
-    startAutoplay();
+    // Initialize Flat Carousel Position
+    updateCarouselPosition();
 
 });
