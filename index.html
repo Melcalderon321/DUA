@@ -43,9 +43,9 @@
             <nav class="nav-menu" id="nav-menu">
                 <ul class="nav-list">
                     <li><a href="#agenda" class="nav-link">Agenda</a></li>
-                    <li><a href="#que-es" class="nav-link">DUA</a></li>
-                    <li><a href="#experiencia" class="nav-link">Experiencia</a></li>
-                    <li><a href="#espacio" class="nav-link">Espacio</a></li>
+                    <li><a href="#que-es" class="nav-link">Concepto</a></li>
+                    <li><a href="#experiencia" class="nav-link">Experiencia DUA</a></li>
+                    <li><a href="#espacio" class="nav-link">El Espacio</a></li>
                     <li><a href="#reservas" class="nav-link">Reservas</a></li>
                 </ul>
             </nav>
@@ -68,30 +68,38 @@
             <!-- Atmospheric ambient glowing light bubbles in background -->
             <div class="glow-bubble glow-wine glow-hero-red"></div>
             <div class="glow-bubble glow-crimson glow-hero-red"></div>
-            
-            <div class="section-container hero-container">
-                <!-- Left Column: Header, Description, and Actions -->
-                <div class="hero-left hero-animate-title">
+            <!-- Centered hero logo -->
+            <div class="hero-logo-center">
+                <img src="assets/logo.png" alt="DUA Music Club" class="hero-logo-img">
+            </div>
+        </section>
+
+        <!-- HERO INTRO: Title, description and CTAs -->
+        <section class="hero-intro-section">
+            <div class="section-container hero-intro-container">
+                <!-- Left: Title -->
+                <div class="hero-intro-left hero-animate-title">
                     <h1 class="hero-title">
                         <span class="title-accent">La música</span>
                         <span class="title-accent">nos reúne</span>
                     </h1>
+                </div>
+                <!-- Right: Description + CTAs -->
+                <div class="hero-intro-right">
                     <div class="hero-animate-desc">
                         <p class="hero-desc">
                             Un espacio en Caballito donde la gastronomía, la coctelería y la cultura se encuentran para crear experiencias auténticas.
                         </p>
                     </div>
-                    <div class="hero-actions-left hero-animate-actions">
+                    <div class="hero-actions-right hero-animate-actions">
                         <a href="#reservas" class="btn btn-primary">Reservá tu mesa</a>
                         <a href="#que-es" class="btn btn-secondary">Viví la experiencia</a>
                     </div>
                 </div>
-
-                <!-- Right Column: Empty to display background image -->
-                <div class="hero-right hero-animate-desc">
-                </div>
             </div>
-        </section>        <!-- 2. AGENDA SECTION -->
+        </section>
+
+        <!-- 2. AGENDA SECTION -->
         <section id="agenda" class="agenda-section">
             <div class="glow-bubble glow-sand"></div>
             <div class="section-container">
@@ -105,13 +113,13 @@
                 </div>
                 
                 <div class="agenda-events-showcase">
-                    <!-- Event 1: Sesiones de Escucha -->
+
+                    <!-- Event 1: SESSION 1 DUA — Clásicos del Jazz -->
                     <div class="agenda-event-card reveal-up">
                         <div class="event-visuals">
                             <div class="vinyl-sleeve">
-                                <img src="assets/event1.jpg" alt="Sesiones DUA" class="sleeve-img">
+                                <img src="assets/event1.jpg" alt="Clásicos del Jazz" class="sleeve-img">
                             </div>
-                            <!-- Vinyl Disk peeking out -->
                             <div class="vinyl-disk-peek">
                                 <div class="vinyl-disk-grooves">
                                     <div class="vinyl-disk-label"></div>
@@ -119,37 +127,33 @@
                             </div>
                         </div>
                         <div class="event-info-content">
-                            <h3 class="event-title-script">Sesiones</h3>
+                            <span class="event-tag">Session 1 DUA</span>
+                            <h3 class="event-title-script">Clásicos del Jazz</h3>
                             <p class="event-description-text">
-                                Musicalización con vinilos y ambientación sonora.
+                                Los grandes estándares del jazz reproducidos en vinilo, como fueron concebidos.
                             </p>
                             <div class="event-meta-details">
                                 <div class="meta-detail-row">
-                                    <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                        <line x1="16" y1="2" x2="16" y2="6"></line>
-                                        <line x1="8" y1="2" x2="8" y2="6"></line>
-                                        <line x1="3" y1="10" x2="21" y2="10"></line>
-                                    </svg>
-                                    <span>Semanal</span>
+                                    <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                    <span>Todos los viernes de septiembre</span>
+                                </div>
+                                <div class="meta-detail-row">
+                                    <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    <span>Desde las 21:00 h</span>
                                 </div>
                             </div>
                             <div class="event-cta-footer">
-                                <a href="https://instagram.com/dua.musicclub" target="_blank" rel="noopener noreferrer" class="event-cta-btn">
-                                    Seguir &rarr;
-                                </a>
+                                <a href="#reservas" class="btn btn-primary event-btn">Reservar mesa</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Event 2: Agenda Acústica -->
-                    <div class="agenda-event-card reveal-up" style="animation-delay: 0.15s;">
+                    <!-- Event 2: VINYL SESSION — Blue Note Essentials -->
+                    <div class="agenda-event-card reveal-up" style="animation-delay: 0.12s;">
                         <div class="event-visuals">
-                            <!-- Vinyl Cover Sleeve -->
                             <div class="vinyl-sleeve">
-                                <img src="assets/event2.webp" alt="Próximamente Música en DUA" class="sleeve-img">
+                                <img src="assets/event2.jpg" alt="Blue Note Essentials" class="sleeve-img">
                             </div>
-                            <!-- Vinyl Disk peeking out -->
                             <div class="vinyl-disk-peek">
                                 <div class="vinyl-disk-grooves">
                                     <div class="vinyl-disk-label"></div>
@@ -157,37 +161,33 @@
                             </div>
                         </div>
                         <div class="event-info-content">
-                            <h3 class="event-title-script">Música en Vivo</h3>
+                            <span class="event-tag">Vinyl Session</span>
+                            <h3 class="event-title-script">Blue Note Essentials</h3>
                             <p class="event-description-text">
-                                Ciclos íntimos y conciertos en formato acústico próximamente.
+                                Una selección de los álbumes más emblemáticos del legendario sello Blue Note.
                             </p>
                             <div class="event-meta-details">
                                 <div class="meta-detail-row">
-                                    <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                        <line x1="16" y1="2" x2="16" y2="6"></line>
-                                        <line x1="8" y1="2" x2="8" y2="6"></line>
-                                        <line x1="3" y1="10" x2="21" y2="10"></line>
-                                    </svg>
-                                    <span>Próximamente</span>
+                                    <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                    <span>Sábado 13 de septiembre</span>
+                                </div>
+                                <div class="meta-detail-row">
+                                    <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    <span>21:00 h</span>
                                 </div>
                             </div>
                             <div class="event-cta-footer">
-                                <a href="#reservas" class="event-cta-btn">
-                                    Reservar mesa &rarr;
-                                </a>
+                                <a href="#reservas" class="btn btn-primary event-btn">Reservar mesa</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Event 3: Gastronomía -->
-                    <div class="agenda-event-card reveal-up" style="animation-delay: 0.25s;">
+                    <!-- Event 3: SPECIAL SESSION — Jazz After Dark -->
+                    <div class="agenda-event-card reveal-up" style="animation-delay: 0.24s;">
                         <div class="event-visuals">
-                            <!-- Vinyl Cover Sleeve -->
                             <div class="vinyl-sleeve">
-                                <img src="assets/event3.jpg" alt="Gastronomía en DUA" class="sleeve-img">
+                                <img src="assets/event3.png" alt="Jazz After Dark" class="sleeve-img">
                             </div>
-                            <!-- Vinyl Disk peeking out -->
                             <div class="vinyl-disk-peek">
                                 <div class="vinyl-disk-grooves">
                                     <div class="vinyl-disk-label"></div>
@@ -195,37 +195,33 @@
                             </div>
                         </div>
                         <div class="event-info-content">
-                            <h3 class="event-title-script">Gastronomía</h3>
+                            <span class="event-tag">Special Session</span>
+                            <h3 class="event-title-script">Jazz After Dark</h3>
                             <p class="event-description-text">
-                                Cocina de estación y platos de autor diseñados para compartir.
+                                Una noche dedicada al hard bop, cool jazz y las sesiones nocturnas que marcaron una época.
                             </p>
                             <div class="event-meta-details">
                                 <div class="meta-detail-row">
-                                    <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                        <line x1="16" y1="2" x2="16" y2="6"></line>
-                                        <line x1="8" y1="2" x2="8" y2="6"></line>
-                                        <line x1="3" y1="10" x2="21" y2="10"></line>
-                                    </svg>
-                                    <span>Diario</span>
+                                    <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                    <span>Viernes 20 de septiembre</span>
+                                </div>
+                                <div class="meta-detail-row">
+                                    <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    <span>21:30 h</span>
                                 </div>
                             </div>
                             <div class="event-cta-footer">
-                                <a href="https://instagram.com/dua.musicclub" target="_blank" rel="noopener noreferrer" class="event-cta-btn">
-                                    Seguir &rarr;
-                                </a>
+                                <a href="#reservas" class="btn btn-primary event-btn">Reservar mesa</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Event 4: Coctelería -->
-                    <div class="agenda-event-card reveal-up" style="animation-delay: 0.35s;">
+                    <!-- Event 4: LISTENING SESSION — Kind of Blue -->
+                    <div class="agenda-event-card reveal-up" style="animation-delay: 0.36s;">
                         <div class="event-visuals">
-                            <!-- Vinyl Cover Sleeve -->
                             <div class="vinyl-sleeve">
-                                <img src="assets/event4.jpg" alt="Coctelería en DUA" class="sleeve-img">
+                                <img src="assets/event4.jpg" alt="Kind of Blue" class="sleeve-img">
                             </div>
-                            <!-- Vinyl Disk peeking out -->
                             <div class="vinyl-disk-peek">
                                 <div class="vinyl-disk-grooves">
                                     <div class="vinyl-disk-label"></div>
@@ -233,28 +229,27 @@
                             </div>
                         </div>
                         <div class="event-info-content">
-                            <h3 class="event-title-script">Coctelería</h3>
+                            <span class="event-tag">Listening Session</span>
+                            <h3 class="event-title-script">Kind of Blue</h3>
                             <p class="event-description-text">
-                                Tragos clásicos y reversiones para cada momento de la noche.
+                                Escucha íntegra de una de las obras más influyentes del jazz en vinilo.
                             </p>
                             <div class="event-meta-details">
                                 <div class="meta-detail-row">
-                                    <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                        <line x1="16" y1="2" x2="16" y2="6"></line>
-                                        <line x1="8" y1="2" x2="8" y2="6"></line>
-                                        <line x1="3" y1="10" x2="21" y2="10"></line>
-                                    </svg>
-                                    <span>Próximamente</span>
+                                    <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                    <span>Viernes 27 de septiembre</span>
+                                </div>
+                                <div class="meta-detail-row">
+                                    <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    <span>21:00 h</span>
                                 </div>
                             </div>
                             <div class="event-cta-footer">
-                                <a href="#reservas" class="event-cta-btn">
-                                    Reservar mesa &rarr;
-                                </a>
+                                <a href="#reservas" class="btn btn-primary event-btn">Reservar mesa</a>
                             </div>
                         </div>
                     </div>
+
                 </div>
 
             </div>
@@ -333,7 +328,7 @@
             <!-- Section header inside the container -->
             <div class="section-container">
                 <div class="experience-header reveal-up">
-                    <span class="eyebrow">La experiencia DUA</span>
+                    <span class="eyebrow">Experiencia DUA</span>
                     <h2 class="section-title">Tres pilares,<br><span class="script-inline">una sola</span> identidad</h2>
                 </div>
             </div>
@@ -401,7 +396,7 @@
             <div class="glow-bubble glow-olive-large"></div>
             <div class="section-container">
                 <div class="space-header reveal-up">
-                    <span class="eyebrow">Nuestros espacios</span>
+                    <span class="eyebrow">El Espacio</span>
                     <h2 class="section-title">Un lugar para llegar temprano, recorrer, sentarse, conversar y quedarse.</h2>
                     <p class="space-p">
                         DUA combina interiores cálidos, diseño contemporáneo y espacios<br>exteriores pensados para disfrutar de día y de noche.
@@ -530,10 +525,15 @@
                 <!-- Information Column -->
                 <div class="footer-col info-col">
                     <h4 class="footer-col-title">Encuentro</h4>
+                    <!-- Opening Legend -->
+                    <div class="footer-opening-badge">
+                        <span class="footer-opening-dot"></span>
+                        <span>Próxima apertura · Septiembre 2026</span>
+                    </div>
                     <div class="info-details-list">
                         <div class="info-detail-item">
                             <span class="info-label">Ubicación</span>
-                            <p class="info-value">Av. Gaona 1869/73, Caballito, CABA</p>
+                            <p class="info-value">Caballito, CABA</p>
                         </div>
                         
                         <div class="info-detail-item">
@@ -553,9 +553,9 @@
                     <h4 class="footer-col-title">Navegación</h4>
                     <ul class="footer-links-list">
                         <li><a href="#agenda">Agenda</a></li>
-                        <li><a href="#que-es">DUA</a></li>
-                        <li><a href="#experiencia">Experiencia</a></li>
-                        <li><a href="#espacio">Espacio</a></li>
+                        <li><a href="#que-es">Concepto</a></li>
+                        <li><a href="#experiencia">Experiencia DUA</a></li>
+                        <li><a href="#espacio">El Espacio</a></li>
                         <li><a href="#reservas">Reservas</a></li>
                     </ul>
                 </div>

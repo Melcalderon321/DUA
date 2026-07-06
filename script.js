@@ -19,6 +19,30 @@ document.addEventListener('DOMContentLoaded', () => {
     handleScroll(); // Run once at start to capture reload state
 
 
+    /* 2. HERO PARALLAX */
+    const heroBgImage = document.querySelector('.hero-bg-image');
+    let rafParallax = null;
+
+    const updateParallax = () => {
+        if (!heroBgImage) return;
+        const scrollY = window.scrollY;
+        const heroSection = document.getElementById('hero');
+        if (!heroSection) return;
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+        // Only apply while the hero is visible
+        if (scrollY <= heroBottom) {
+            heroBgImage.style.transform = `translateY(${scrollY * 0.3}px)`;
+        }
+        rafParallax = null;
+    };
+
+    window.addEventListener('scroll', () => {
+        if (!rafParallax) {
+            rafParallax = requestAnimationFrame(updateParallax);
+        }
+    }, { passive: true });
+
+
     /* 2. MOBILE NAV MENU TOGGLE */
     const mobileToggle = document.getElementById('mobile-toggle');
     const navMenu = document.getElementById('nav-menu');
