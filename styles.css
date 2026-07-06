@@ -543,7 +543,7 @@ section {
    ========================================================================== */
 
 .hero-section {
-    height: 65vh;
+    height: 100vh;
     background-color: var(--color-black);
     position: relative;
     overflow: hidden;
