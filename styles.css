@@ -911,12 +911,12 @@ section {
     font-family: var(--font-sans);
     font-weight: 700;
     font-size: clamp(1.6rem, 3.2vw, 2.4rem);
-    color: var(--color-sand);
+    color: #fafafa;
     white-space: nowrap;
 }
 
 .title-accent:last-child {
-    color: var(--color-sand);
+    color: #fafafa;
 }
 
 .title-light {
@@ -1186,13 +1186,13 @@ section {
     font-weight: 700;
     line-height: 1.15;
     letter-spacing: -0.02em;
-    color: var(--color-sand);
+    color: #fafafa;
     text-transform: uppercase;
     margin: 0;
 }
 
 .about-title-large span {
-    color: var(--color-sand);
+    color: #fafafa;
 }
 
 .about-lead {
@@ -1533,7 +1533,7 @@ section {
     font-size: clamp(1.4rem, 3.3vw, 2.4rem);
     text-transform: uppercase;
     letter-spacing: -0.02em;
-    color: var(--color-sand);
+    color: #fafafa;
     font-weight: 400;
     line-height: 1.25;
     margin: 0;
