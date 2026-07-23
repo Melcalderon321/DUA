@@ -275,14 +275,23 @@ img {
 
 /* Eyebrows and Section Titles */
 .eyebrow {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: fit-content;
     font-family: var(--font-primary);
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--color-copper);
+    color: var(--color-crimson);
     margin-bottom: 0.6rem;
+}
+
+.eyebrow svg {
+    width: 15px;
+    height: 15px;
+    stroke-width: 1.8;
 }
 
 .eyebrow-light {
@@ -892,14 +901,14 @@ section {
     gap: 0.2rem;
     margin-top: 1rem;
     margin-bottom: 0.8rem;
-    line-height: 0.95;
+    line-height: 1.15;
     text-transform: uppercase;
 }
 
 .title-accent {
     font-family: var(--font-sans);
     font-weight: 700;
-    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    font-size: clamp(1.6rem, 3.2vw, 2.4rem);
     color: var(--color-cream);
     white-space: nowrap;
 }
@@ -968,8 +977,8 @@ section {
     line-height: 1.7;
     margin-top: -20px;
     margin-bottom: 0.5rem;
-    color: #ffffff;
-    opacity: 0.95;
+    color: var(--color-sand);
+    opacity: 0.8;
     max-width: 480px;
 }
 .hero-actions-left {
@@ -1026,7 +1035,7 @@ section {
 
 .about-section {
     background-color: #000000;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('assets/about_bg.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('assets/about_bg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1170,10 +1179,10 @@ section {
 }
 
 .about-title-large {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(2.2rem, 5.8vw, 4.2rem);
-    font-weight: 300;
-    line-height: 0.95;
+    font-weight: 700;
+    line-height: 1.15;
     letter-spacing: -0.02em;
     color: var(--color-cream);
     text-transform: uppercase;
@@ -1227,7 +1236,8 @@ section {
 }
 
 .accordion-trigger:hover {
-    color: var(--color-crimson);
+    color: #ffffff;
+    font-weight: 700;
 }
 
 .accordion-icon {
@@ -1338,8 +1348,16 @@ section {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(8,6,6,0.05) 0%, rgba(8,6,6,0.38) 100%);
+    background: none;
     pointer-events: none;
+}
+
+.gastronomia-img {
+    object-position: center bottom;
+}
+
+.cocteleria-img {
+    object-position: center bottom;
 }
 
 .exp-panel-img::before {
@@ -1438,11 +1456,11 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('assets/quote_bg.jpg');
+    background-image: url('assets/quote_bg.png');
     background-position: center 30%;
     background-size: cover;
     background-repeat: no-repeat;
-    opacity: 0.25;
+    opacity: 0.45;
     z-index: 1;
     pointer-events: none;
     transform: scale(1.05);
@@ -1496,8 +1514,8 @@ section {
 .quote-editorial-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
     position: relative;
     max-width: 900px;
     margin: 0 auto;
@@ -1510,11 +1528,15 @@ section {
     font-size: clamp(1.4rem, 3.3vw, 2.4rem);
     text-transform: uppercase;
     letter-spacing: -0.02em;
-    color: var(--color-cream);
-    font-weight: 300;
+    color: #ffffff;
+    font-weight: 400;
     line-height: 1.25;
     margin: 0;
     display: block;
+}
+
+.quote-bold {
+    font-weight: 700;
 }
 
 .quote-editorial-text.highlight-crimson {
@@ -1620,6 +1642,7 @@ section {
 
 .agenda-subtitle {
     font-size: 1.0rem;
+    font-weight: 300;
     line-height: 1.7;
     color: var(--color-sand);
     opacity: 0.8;
@@ -1658,7 +1681,7 @@ section {
 @media (min-width: 768px) {
     .agenda-event-card {
         flex-direction: row;
-        align-items: center;
+        align-items: flex-start;
         padding: 1.2rem 1.8rem;
         gap: 2.5rem;
     }
@@ -1677,7 +1700,7 @@ section {
     display: flex;
     align-items: center;
     flex-shrink: 0;
-    transform: rotate(-6deg);
+    transform: translateY(6px) rotate(-6deg);
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     overflow: visible;
 }
@@ -1689,7 +1712,7 @@ section {
 }
 
 .agenda-event-card:hover .event-visuals {
-    transform: rotate(-10deg) scale(1.04) translateX(-8px);
+    transform: translateY(6px) rotate(-10deg) scale(1.04) translateX(-8px);
 }
 
 .vinyl-sleeve {
@@ -2711,6 +2734,100 @@ body::before {
     .whatsapp-float-icon {
         width: 26px;
         height: 26px;
+    }
+}
+
+/* Event Card Redesign styles */
+.event-date-side {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-shrink: 0;
+}
+
+.event-date-line {
+    width: 1.5px;
+    height: 70px;
+    background-color: var(--color-copper);
+    opacity: 0.8;
+}
+
+.event-date-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.1;
+}
+
+.event-date-day {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-copper);
+}
+
+.event-date-number {
+    font-family: var(--font-sans);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0.1rem 0;
+}
+
+.event-date-month {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-copper);
+}
+
+.event-divider {
+    width: 50px;
+    height: 1.5px;
+    background-color: var(--color-copper);
+    margin-bottom: 1.2rem;
+    opacity: 0.55;
+}
+
+.meta-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+}
+
+.meta-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-copper);
+    opacity: 0.85;
+}
+
+.meta-value {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--color-cream);
+}
+
+.meta-subvalue {
+    font-size: 0.65rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-sand);
+    opacity: 0.7;
+    margin-top: 0.1rem;
+}
+
+@media (max-width: 767px) {
+    .event-date-side {
+        align-self: flex-start;
+        margin-bottom: 0.8rem;
     }
 }
 
