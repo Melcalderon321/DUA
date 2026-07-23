@@ -733,7 +733,7 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('assets/hero_bg.jpg');
+    background-image: url('assets/hero_chatgpt.png');
     background-size: 130%;
     background-position: center 20%;
     background-repeat: no-repeat;
@@ -805,8 +805,10 @@ section {
 }
 
 .hero-logo-img {
-    width: clamp(160px, 22vw, 320px);
+    width: clamp(130px, 18vw, 260px);
+    max-width: 100%;
     height: auto;
+    object-fit: contain;
     filter: brightness(1.3) drop-shadow(0 4px 32px rgba(0,0,0,0.6));
     animation: heroLogoGlow 2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
 }
@@ -895,14 +897,15 @@ section {
 }
 
 .title-accent {
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: 2.8rem;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
     color: var(--color-cream);
+    white-space: nowrap;
 }
 
 .title-accent:last-child {
-    color: var(--color-crimson);
+    color: var(--color-cream);
 }
 
 .title-light {
