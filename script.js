@@ -304,6 +304,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Split Banner Swap Logic (swaps only once on first hover)
+    const splitBanner = document.querySelector('.split-banner-container');
+    if (splitBanner) {
+        splitBanner.addEventListener('mouseenter', () => {
+            splitBanner.classList.add('swapped');
+        }, { once: true });
+    }
+
     // Initialize Flat Carousel Position
     updateCarouselPosition();
 
