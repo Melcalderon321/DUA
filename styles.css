@@ -1646,14 +1646,14 @@ section {
    7. AGENDA SECTION
    ========================================================================== */
 .agenda-section {
-    background-color: var(--color-cream);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    background-color: var(--color-black);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     padding-top: 6.8rem;
     position: relative;
 }
 
 .agenda-section .glow-bubble {
-    display: none;
+    display: block;
 }
 
 .agenda-section .eyebrow-light {
@@ -1662,12 +1662,12 @@ section {
 }
 
 .agenda-section .section-title {
-    color: var(--color-charcoal);
+    color: var(--color-cream);
 }
 
 .agenda-section .agenda-subtitle {
-    color: var(--color-taupe);
-    opacity: 1;
+    color: var(--color-sand);
+    opacity: 0.85;
 }
 .agenda-giant-title {
     font-family: var(--font-display);
@@ -1727,8 +1727,8 @@ section {
 .agenda-event-card {
     display: flex;
     flex-direction: column;
-    background: #0c0c0c;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #141414;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 4px;
     padding: 1rem 1.2rem;
     gap: 1.2rem;
@@ -1748,9 +1748,33 @@ section {
 }
 
 .agenda-event-card:hover {
-    background: #0c0c0c;
+    background: #1c1c1c;
     border-color: rgba(255, 255, 255, 0.18);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+}
+
+.event-card-jazz-sessions {
+    background: url('assets/event2_bg.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.event-card-jazz-sessions:hover {
+    background: url('assets/event2_bg.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.event-card-jazz-after-dark {
+    background: url('assets/event3_bg.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.event-card-jazz-after-dark:hover {
+    background: url('assets/event3_bg.png');
+    background-size: cover;
+    background-position: center;
 }
 
 .event-visuals {
@@ -1760,9 +1784,28 @@ section {
     display: flex;
     align-items: center;
     flex-shrink: 0;
-    transform: translateY(6px) rotate(-6deg);
+    transform: translateY(14px) rotate(-6deg);
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     overflow: visible;
+}
+
+.event-visuals::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 240px;
+    height: 240px;
+    background: radial-gradient(circle, rgba(170, 10, 36, 0.45) 0%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+    border-radius: 50%;
+    display: none;
+}
+
+.event-visuals:has(div)::before {
+    display: block;
 }
 
 @media (max-width: 767px) {
@@ -1772,7 +1815,7 @@ section {
 }
 
 .agenda-event-card:hover .event-visuals {
-    transform: translateY(6px) rotate(-10deg) scale(1.04) translateX(-8px);
+    transform: translateY(14px) rotate(-10deg) scale(1.04) translateX(-8px);
 }
 
 .vinyl-sleeve {
@@ -3181,10 +3224,10 @@ body::before {
 /* Prevent overflow of vinyl sleeve preview inside card on narrow mobile viewports */
 @media (max-width: 400px) {
     .event-visuals {
-        transform: scale(0.85) translateY(6px) rotate(-6deg);
+        transform: scale(0.85) translateY(14px) rotate(-6deg);
     }
     .agenda-event-card:hover .event-visuals {
-        transform: scale(0.85) translateY(6px) rotate(-10deg) translateX(-8px);
+        transform: scale(0.85) translateY(14px) rotate(-10deg) translateX(-8px);
     }
 }
 
