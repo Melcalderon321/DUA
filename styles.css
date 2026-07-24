@@ -3166,3 +3166,26 @@ body::before {
     text-transform: uppercase;
 }
 
+/* ==========================================================================
+   15. RESPONSIVE REFINEMENTS FOR 1366px, 1920px & MOBILE
+   ========================================================================== */
+
+/* Maximize container space for text & button inside quote badge on smaller screens */
+@media (max-width: 575px) {
+    .quote-editorial-wrapper {
+        padding: 2.5rem 1.5rem;
+        width: 100%;
+    }
+}
+
+/* Prevent overflow of vinyl sleeve preview inside card on narrow mobile viewports */
+@media (max-width: 400px) {
+    .event-visuals {
+        transform: scale(0.85) translateY(6px) rotate(-6deg);
+    }
+    .agenda-event-card:hover .event-visuals {
+        transform: scale(0.85) translateY(6px) rotate(-10deg) translateX(-8px);
+    }
+}
+
+
