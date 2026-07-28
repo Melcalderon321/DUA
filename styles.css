@@ -744,7 +744,7 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('assets/hero_chatgpt.png');
+    background-image: url('assets/hero_chatgpt.png?v=4');
     background-size: 130%;
     background-position: center 20%;
     background-repeat: no-repeat;
@@ -907,16 +907,21 @@ section {
     text-transform: uppercase;
 }
 
-.title-accent {
+.title-accent,
+.title-regular,
+.title-bold {
     font-family: var(--font-sans);
-    font-weight: 700;
     font-size: clamp(1.6rem, 3.2vw, 2.4rem);
     color: #fafafa;
     white-space: nowrap;
 }
 
-.title-accent:last-child {
-    color: #fafafa;
+.title-regular {
+    font-weight: 400;
+}
+
+.title-bold {
+    font-weight: 700;
 }
 
 .title-light {
@@ -933,7 +938,9 @@ section {
     .title-light {
         font-size: 3.6rem;
     }
-    .title-accent {
+    .title-accent,
+    .title-regular,
+    .title-bold {
         font-size: 4.2rem;
     }
 }
@@ -942,7 +949,9 @@ section {
     .title-light {
         font-size: 4.2rem;
     }
-    .title-accent {
+    .title-accent,
+    .title-regular,
+    .title-bold {
         font-size: 5.0rem;
     }
 }
@@ -1193,6 +1202,10 @@ section {
 
 .about-title-large span {
     color: #fafafa;
+}
+
+.about-title-regular {
+    font-weight: 400;
 }
 
 .about-lead {
@@ -2970,6 +2983,10 @@ body::before {
     background-repeat: no-repeat;
     z-index: 1;
     transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.split-left .split-bg {
+    background-position: center 5%;
 }
 
 .split-banner-container.swapped .split-left .split-bg {
