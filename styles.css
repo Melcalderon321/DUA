@@ -2678,7 +2678,7 @@ body::before {
 /* Custom Typography and Overlays */
 .hero-title {
     position: relative;
-    line-height: 0.95;
+    line-height: 1.08;
     margin-bottom: 2.2rem;
 }
 
