@@ -746,16 +746,14 @@ section {
     height: 100%;
     background-image: url('assets/hero_chatgpt_latest.png?v=3');
     background-size: cover;
-    background-position: center top;
+    background-position: center 15%;
     background-repeat: no-repeat;
-    transform: scale(1.08);
-    transform-origin: center top;
 }
 
 @media (max-width: 767px) {
     .hero-bg-image {
         background-size: cover;
-        background-position: center top;
+        background-position: center 15%;
     }
 }
 
