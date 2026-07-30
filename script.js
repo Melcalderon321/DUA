@@ -29,12 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const heroSection = document.getElementById('hero');
         if (!heroSection) return;
         const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-        // Only apply while the hero is visible
+        // Very gentle parallax — keeps singer's head in frame at all scroll positions
         if (scrollY <= heroBottom) {
-            // Shift the background down slightly on scroll (parallax),
-            // starting from 15% so the singer's head is never clipped
-            const offset = 15 + scrollY * 0.015;
-            heroBgImage.style.backgroundPositionY = `${offset}%`;
+            heroBgImage.style.transform = `translateY(${scrollY * 0.1}px)`;
         }
         rafParallax = null;
     };
@@ -44,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
             rafParallax = requestAnimationFrame(updateParallax);
         }
     }, { passive: true });
-
 
 
     /* 2. MOBILE NAV MENU TOGGLE */
