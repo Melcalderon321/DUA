@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://use.typekit.net/lxq6acz.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=10">
+    <link rel="stylesheet" href="styles.css?v=35">
 </head>
 <body>
 
@@ -42,11 +42,11 @@
             </button>
             <nav class="nav-menu" id="nav-menu">
                 <ul class="nav-list">
-                    <li><a href="#agenda" class="nav-link">Agenda</a></li>
-                    <li><a href="#que-es" class="nav-link">Concepto</a></li>
-                    <li><a href="#experiencia" class="nav-link">Experiencia DUA</a></li>
-                    <li><a href="#espacio" class="nav-link">El Espacio</a></li>
-                    <li><a href="#reservas" class="nav-link">Reservas</a></li>
+                    <li><a href="#agenda" class="nav-link">AGENDA</a></li>
+                    <li><a href="#que-es" class="nav-link">CONCEPTO</a></li>
+                    <li><a href="#experiencia" class="nav-link">EXPERIENCIA DUA</a></li>
+                    <li><a href="#espacio" class="nav-link">EL ESPACIO</a></li>
+                    <li><a href="#reservas" class="nav-link nav-link-reservas">[ RESERVAS ]</a></li>
                 </ul>
             </nav>
         </div>
@@ -68,37 +68,39 @@
             <!-- Atmospheric ambient glowing light bubbles in background -->
             <div class="glow-bubble glow-wine glow-hero-red"></div>
             <div class="glow-bubble glow-crimson glow-hero-red"></div>
-            <!-- Centered hero logo -->
-            <div class="hero-logo-center">
-                <img src="assets/logo.png" alt="DUA Music Club" class="hero-logo-img" width="260" height="85" fetchpriority="high" decoding="async">
-            </div>
-            <!-- Hero bottom text -->
-            <div class="hero-bottom-text">
-                <span class="hero-opening-dot"></span>
-                <span>Próximamente</span>
+            
+            <!-- Hero content overlay (bottom-left) -->
+            <div class="hero-content-overlay">
+                <div class="hero-accent-blocks">
+                    <span class="accent-block"></span>
+                    <span class="accent-block"></span>
+                    <span class="accent-block"></span>
+                </div>
+                <h1 class="hero-overlay-title">
+                    HABITAR<br>LA MÚSICA
+                </h1>
+                <div class="hero-overlay-tags">
+                    <p class="tag-row">// MÚSICA EN VIVO // LISTENING BAR</p>
+                    <p class="tag-row">// GASTRONOMÍA // COCTELERÍA</p>
+                </div>
             </div>
         </section>
 
         <!-- HERO INTRO: Title, description and CTAs -->
         <section class="hero-intro-section">
             <div class="section-container hero-intro-container">
-                <!-- Left: Title -->
-                <div class="hero-intro-left hero-animate-title">
-                    <h1 class="hero-title">
-                        <span class="title-regular">Tu música</span>
-                        <span class="title-bold">dice quién sos</span>
-                    </h1>
+                <!-- Left: Title & Description -->
+                <div class="hero-intro-left">
+                    <h2 class="hero-intro-title">
+                        ESPACIO DE MÚSICA, ARTE,<br>GASTRONOMÍA Y ENCUENTRO
+                    </h2>
+                    <p class="hero-intro-desc">
+                        <strong>DUA</strong> es un espacio donde la música, la gastronomía y la cultura conviven sin apuro. <strong>Un lugar para escuchar, comer, conversar, descubrir artistas y quedarse un rato más.</strong>
+                    </p>
                 </div>
-                <!-- Right: Description + CTAs -->
+                <!-- Right: Red Reservas Box Button -->
                 <div class="hero-intro-right">
-                    <div class="hero-animate-desc">
-                        <p class="hero-desc">
-                            Música en&nbsp;vivo, gastronomía y&nbsp;cultura en&nbsp;Caballito. DUA es un punto verde donde el día y&nbsp;la noche conviven naturalmente. Un espacio para compartir, descubrir artistas y&nbsp;disfrutar.
-                        </p>
-                    </div>
-                    <div class="hero-actions-right hero-animate-actions">
-                        <a href="#reservas" class="btn btn-primary">Reservar</a>
-                    </div>
+                    <a href="#reservas" class="btn-reservas-box">[ RESERVAS ]</a>
                 </div>
             </div>
         </section>
@@ -108,24 +110,36 @@
             <div class="split-banner-container">
                 <!-- Left Side: De Día -->
                 <div class="split-side split-left">
-                    <div class="split-bg" style="background-image: url('assets/split_day.png?v=2');"></div>
+                    <div class="split-bg" style="background-image: url('assets/split_day_new.png?v=1');"></div>
                 </div>
 
                 <!-- Right Side: De Noche -->
                 <div class="split-side split-right">
-                    <div class="split-bg" style="background-image: url('assets/split_night.png?v=3');"></div>
+                    <div class="split-bg" style="background-image: url('assets/split_night_new.png?v=1');"></div>
                 </div>
 
-                <!-- Center Badge: Circle -->
-                <div class="split-center-badge">
-                    <div class="badge-inner">
-                        <span class="badge-text-top">UN LUGAR.</span>
-                        <span class="badge-text-accent">DOS ATMÓSFERAS.</span>
-                        <div class="badge-line"></div>
-                        <span class="badge-text-bottom">UNA SOLA<br><strong>IDENTIDAD.</strong></span>
-                    </div>
+                <!-- Dark Box at bottom of photos -->
+                <div class="split-center-box-top">
+                    <span class="split-box-tag">DOS RITMOS</span>
+                    <h3 class="split-box-title">UN SOLO LUGAR</h3>
                 </div>
+            </div>
 
+            <!-- Black Bar Below Photos -->
+            <div class="split-banner-bottom-bar">
+                <div class="split-accent-blocks left-blocks">
+                    <span class="accent-block"></span>
+                    <span class="accent-block"></span>
+                    <span class="accent-block"></span>
+                </div>
+                <div class="split-box-banner">
+                    <p>El día y la noche conviven<br>naturalmente en <strong>DUA</strong></p>
+                </div>
+                <div class="split-accent-blocks right-blocks">
+                    <span class="accent-block"></span>
+                    <span class="accent-block"></span>
+                    <span class="accent-block"></span>
+                </div>
             </div>
         </section>
 
@@ -182,7 +196,7 @@
                                 </div>
                             </div>
                             <div class="event-cta-footer">
-                                <a href="#reservas" class="btn btn-primary event-btn">Reservar</a>
+                                <a href="#reservas" class="btn btn-primary event-btn">[ RESERVAR ]</a>
                             </div>
                         </div>
                     </div>
@@ -213,7 +227,7 @@
                                 </div>
                             </div>
                             <div class="event-cta-footer">
-                                <a href="#reservas" class="btn btn-primary event-btn">Reservar</a>
+                                <a href="#reservas" class="btn btn-primary event-btn">[ RESERVAR ]</a>
                             </div>
                         </div>
                     </div>
@@ -244,7 +258,7 @@
                                 </div>
                             </div>
                             <div class="event-cta-footer">
-                                <a href="#reservas" class="btn btn-primary event-btn">Reservar</a>
+                                <a href="#reservas" class="btn btn-primary event-btn">[ RESERVAR ]</a>
                             </div>
                         </div>
                     </div>
@@ -283,7 +297,7 @@
                                 </div>
                             </div>
                             <div class="event-cta-footer">
-                                <a href="#reservas" class="btn btn-primary event-btn">Reservar</a>
+                                <a href="#reservas" class="btn btn-primary event-btn">[ RESERVAR ]</a>
                             </div>
                         </div>
                     </div> 
@@ -304,15 +318,16 @@
                     <!-- Left: Large bold typographic title -->
                     <div class="about-visual-typographic">
                         <h2 class="about-title-large">
-                            <span class="about-title-regular">El lugar que</span><br>
-                            <span>queríamos encontrar.</span>
+                            <span class="about-title-regular">El lugar</span><br>
+                            que queríamos<br>
+                            encontrar.
                         </h2>
                     </div>
                     
                     <!-- Right: Narrative content and collapsible dropdowns -->
                     <div class="about-content">
                         <p class="about-lead">
-                            DUA nació como la&nbsp;búsqueda de&nbsp;un lugar que también queríamos encontrar. Un punto verde en&nbsp;la ciudad donde el parque, la&nbsp;gastronomía, la&nbsp;música y&nbsp;las personas conviven naturalmente. Un espacio que cambia con&nbsp;la luz del&nbsp;día y&nbsp;encuentra un&nbsp;nuevo ritmo cuando llega la&nbsp;noche.
+                            DUA nació de la búsqueda de un lugar que también queríamos encontrar. Un espacio donde la música pudiera convivir naturalmente con la gastronomía, la conversación y el tiempo. Un lugar para descubrir algo nuevo y sentir que, de alguna manera, ya lo conocías.
                         </p>
                         
                         <div class="about-accordion">
@@ -375,7 +390,7 @@
                 <!-- Panel 1: Gastronomía — image left, text right -->
                 <div class="exp-panel reveal-up">
                     <div class="exp-panel-img">
-                        <img src="assets/gastronomia_nueva.jpg" alt="Gastronomía en DUA" class="gastronomia-img" width="800" height="530" loading="lazy" decoding="async">
+                        <img src="assets/gastronomia_v3.png" alt="Gastronomía en DUA" class="gastronomia-img" width="800" height="530" loading="lazy" decoding="async">
                     </div>
                     <div class="exp-panel-body">
                         <span class="exp-panel-num">01</span>
@@ -387,7 +402,7 @@
                 <!-- Panel 2: Coctelería — image right, text left -->
                 <div class="exp-panel reverse reveal-up">
                     <div class="exp-panel-img">
-                        <img src="assets/cocteleria_final.jpg" alt="Coctelería en DUA" class="cocteleria-img" width="800" height="530" loading="lazy" decoding="async">
+                        <img src="assets/cocteleria_v3.png" alt="Coctelería en DUA" class="cocteleria-img" width="800" height="530" loading="lazy" decoding="async">
                     </div>
                     <div class="exp-panel-body">
                         <span class="exp-panel-num">02</span>
@@ -399,7 +414,7 @@
                 <!-- Panel 3: Música y cultura — image left, text right -->
                 <div class="exp-panel reveal-up">
                     <div class="exp-panel-img">
-                        <img src="assets/musica_nueva.jpg" alt="Música y cultura en DUA" width="800" height="530" loading="lazy" decoding="async">
+                        <img src="assets/musica_v3.png" alt="Música y cultura en DUA" class="musica-img" width="800" height="530" loading="lazy" decoding="async">
                     </div>
                     <div class="exp-panel-body">
                         <span class="exp-panel-num">03</span>
@@ -418,7 +433,13 @@
             <div class="glow-bubble glow-olive-large"></div>
             <div class="section-container">
                 <div class="space-header reveal-up">
-                    <span class="eyebrow">El Espacio</span>
+                    <span class="eyebrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                        </svg>
+                        EL ESPACIO
+                    </span>
                     <h2 class="section-title">Cada rincón tiene su propio pulso.</h2>
                     <p class="space-p">
                         Interiores cálidos, un parque rodeado de&nbsp;vegetación y&nbsp;espacios al&nbsp;aire libre crean un&nbsp;recorrido que se&nbsp;transforma entre el&nbsp;día y&nbsp;la noche. Cada rincón tiene una manera distinta de&nbsp;vivirse.
@@ -487,7 +508,7 @@
             
             <!-- Space CTA Button -->
             <div class="space-cta-container reveal-up">
-                <a href="#reservas" class="btn btn-primary">Viví la experiencia</a>
+                <a href="#reservas" class="btn btn-primary">[ VIVÍ LA EXPERIENCIA ]</a>
             </div>
         </section>
 
@@ -500,7 +521,7 @@
                 <span class="gallery-category" style="display:none;">Experiencia</span> <!-- category fallback for script -->
                 <span class="quote-editorial-text quote-bold">Encontrá la tuya en DUA.</span>
                 <div class="quote-cta-container" style="margin-top: 2.2rem; z-index: 2; position: relative;">
-                    <a href="https://wa.me/5491100000000?text=Hola%20DUA!%20Me%20gustar%C3%ADa%20reservar%20una%20mesa%20para%20los%20pr%C3%B3ximos%20d%C3%ADas." target="_blank" rel="noopener noreferrer" class="btn btn-primary">Reservar por WhatsApp</a>
+                    <a href="https://wa.me/5491100000000?text=Hola%20DUA!%20Me%20gustar%C3%ADa%20reservar%20una%20mesa%20para%20los%20pr%C3%B3ximos%20d%C3%ADas." target="_blank" rel="noopener noreferrer" class="btn btn-primary">[ RESERVAR POR WHATSAPP ]</a>
                 </div>
             </div>
         </div>
@@ -526,11 +547,11 @@
                     <!-- Action Buttons: Clean, minimal Glass CTAs -->
                     <div class="footer-actions-container">
                         <a href="https://wa.me/5491100000000?text=Hola%20DUA!%20Me%20gustar%C3%ADa%20reservar%20una%20mesa%20para%20los%20pr%C3%B3ximos%20d%C3%ADas." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-footer" id="whatsapp-booking-btn">
-                            <span>Reservar por Whatsapp</span>
+                            <span>[ RESERVAR POR WHATSAPP ]</span>
                         </a>
                         
                         <a href="https://maps.google.com/?q=Av.+Gaona+1869-73,+Caballito,+CABA,+Argentina" target="_blank" rel="noopener noreferrer" class="btn btn-map-footer" id="map-location-btn">
-                            <span>Ver en el mapa</span>
+                            <span>[ VER EN EL MAPA ]</span>
                         </a>
                     </div>
                 </div>
