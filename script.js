@@ -19,28 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
     handleScroll(); // Run once at start to capture reload state
 
 
-    /* 2. HERO PARALLAX */
+    /* 2. HERO PARALLAX (DISABLED - FIXED HERO IMAGE) */
     const heroBgImage = document.querySelector('.hero-bg-image');
-    let rafParallax = null;
-
-    const updateParallax = () => {
-        if (!heroBgImage) return;
-        const scrollY = window.scrollY;
-        const heroSection = document.getElementById('hero');
-        if (!heroSection) return;
-        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-        // Very gentle parallax — keeps singer's head in frame at all scroll positions
-        if (scrollY <= heroBottom) {
-            heroBgImage.style.transform = `translateY(${scrollY * 0.1}px)`;
-        }
-        rafParallax = null;
-    };
-
-    window.addEventListener('scroll', () => {
-        if (!rafParallax) {
-            rafParallax = requestAnimationFrame(updateParallax);
-        }
-    }, { passive: true });
+    if (heroBgImage) {
+        heroBgImage.style.transform = 'none';
+    }
 
 
     /* 2. MOBILE NAV MENU TOGGLE */
