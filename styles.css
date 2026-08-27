@@ -196,6 +196,17 @@ img {
     transition: all var(--transition-smooth);
     cursor: pointer;
     gap: 10px;
+    white-space: nowrap;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 575px) {
+    .btn {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+    }
 }
 
 .btn-primary {
